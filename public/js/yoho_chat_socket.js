@@ -1,4 +1,4 @@
-var chat_server = 'http://' + location.hostname + ':3000';
+var chat_server = 'http://' + location.hostname + ':8003';
 console.log('server: ' + chat_server);
 var socket = io.connect(chat_server);
 
