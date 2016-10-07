@@ -65,7 +65,7 @@ head
             .panel-body
               .col-sm-9
                 h5#my-nickname
-                  | 昵称： 尚未登陆                     
+                  | 昵称： #{nickname}                     
               //- .col-sm-3
               //-   button.btn.btn-default(onclick='onClickChangeNickname()') 修改
         // 在线列表
@@ -99,9 +99,9 @@ head
           .modal-body
             .row
               .col-sm-8.col-sm-push-2
-                #nickname-error.alert.alert-danger(role='alert', style='display: none')
+                #nickname-error.alert.alert-danger(role='alert',style='display:#{loginErrMsg.state}')
                   span.glyphicon.glyphicon-remove
-                  |                            
+                  | #{loginErrMsg.cont}                        
                 |                         
                 .input-group
                   span.input-group-addon 昵称
