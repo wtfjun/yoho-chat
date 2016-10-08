@@ -65,7 +65,7 @@ exports.leaveMessageAction = function(req, res, next) {						//add a message
 	var message = new Message();
 	message.nickname = nickname;
 	message.comment = comment;
-	message.c_at = create_at;
+	message.create_at = create_at;
 
 	message.save(function(err) {
 		if(err) return console.error(err);
