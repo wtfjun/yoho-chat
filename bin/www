@@ -26,8 +26,8 @@ var server = http.createServer(app);
  *
  */
  
-var message = require('../controllers/controllers');
-message.listen(server);
+var chat_server = require('../chat_server');
+chat_server.listen(server);
 
 
 /**

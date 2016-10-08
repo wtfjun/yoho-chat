@@ -18,43 +18,44 @@ head
               span.glyphicon.glyphicon-home
               | &nbsp; 留言板
                              
-            .panel-body.chat-body
-              //- .msg-list-body.msg-content
+            .panel-body.chat-body(style='padding: 5px;')
                 .clearfix.msg-wrap
                   .msg-head
                     span.label.label-info.pull-left
                       span.glyphicon.glyphicon-user
                       |                         &nbsp;Sc&#x5343;&#x5BFB;
                                 
-                    span.label.label-success.pull-right
+                    span.msg-time.label.label-default.pull-left
                       span.glyphicon.glyphicon-time
-                      |                         &nbsp;21:34:15    
-                |test 
-              - for(var i=0;i<messages.length;i++) {
-              .msg-list-body.msg-content
+                      |                         &nbsp;&nbsp;21:34:15    
+                  .msg-content
+                    | sada
+                - for(var i=0;i<messages.length;i++) {
                 .clearfix.msg-wrap
                   .msg-head
                     span.label.label-info.pull-left
                       span.glyphicon.glyphicon-user
-                      | &nbsp;&nbsp;#{messages[i].nickname}
+                      |                         &nbsp;#{messages[i].nickname}
                                 
-                    span.label.label-success.pull-right
+                    span.msg-time.label.label-default.pull-left
                       span.glyphicon.glyphicon-time
-                      | &nbsp;&nbsp;#{messages[i].create_at.toLocaleString()}    
-                | #{messages[i].comment}
-              - }
+                      |                         &nbsp;&nbsp;#{messages[i].create_at.toLocaleString()}
+                  .msg-content
+                    | #{messages[i].comment}
+                - }
+              
         
               
 
           // 输入框
-          form#message-form.input-group.input-group-lg(action='/leaveMessageAction', method='post')
+          #message-form.input-group.input-group-lg
             input#message-form-nickname(name='nickname', type='text', style='display:none')
             span.input-group-btn
               button#emotion-btn.btn.btn-default(type='button')
-                img(src='', style='width:24px;height:24px;')
+                img(src='/img/emotion_smile.png', style='width:24px;height:24px;')
             input#input-edit.form-control(name='comment', type='text', placeholder='请输入聊天内容')
             span.input-group-btn
-              button.btn.btn-default(type='submit') 发送
+              button.btn.btn-default(onclick='onClickSendMessage()') 发送
                 span.glyphicon.glyphicon-send
         // 个人信息
         .col-sm-4
@@ -87,7 +88,7 @@ head
     // Modal
     #login-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
       .modal-dialog
-        form#login-form.modal-content(action='/loginAction', method='post')
+        #login-form.modal-content(action='/loginAction', method='post')
           .modal-header
             button.close(type='button', data-dismiss='modal')
               span(aria-hidden='true') &times;
@@ -99,9 +100,9 @@ head
           .modal-body
             .row
               .col-sm-8.col-sm-push-2
-                #nickname-error.alert.alert-danger(role='alert',style='display:#{loginErrMsg.state}')
+                #nickname-error.alert.alert-danger(role='alert',style='display:none')
                   span.glyphicon.glyphicon-remove
-                  | #{loginErrMsg.cont}                        
+                  |                        
                 |                         
                 .input-group
                   span.input-group-addon 昵称
@@ -110,15 +111,17 @@ head
                 .input-group(style='margin-top:15px')
                   span.input-group-addon 密码
                   |                             
-                  input#nickname-edit.form-control(name='password', type='password', placeholder='请输入密码')
+                  input#password-edit.form-control(name='password', type='password', placeholder='请输入密码')
           |             
           .modal-footer
             button.btn.btn-primary(onclick='onClickLogin()') 登陆
     script(src='/js/jquery.min.js')
     script(src='/js/jquery.cookie.js')
     script(src='/js/bootstrap.min.js')
+    script(src='/js/common.js')
     script(src='/js/socket.io.js')
     script(src='/js/yoho_chat_socket.js')
     script(src='/js/yoho_chat_ui.js')
     script.
       needToLogin();
+      chatBodyToBottom();
