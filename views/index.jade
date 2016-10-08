@@ -39,7 +39,7 @@ head
                                 
                     span.msg-time.label.label-default.pull-left
                       span.glyphicon.glyphicon-time
-                      |                         &nbsp;&nbsp;#{messages[i].create_at.toLocaleString()}
+                      |                         &nbsp;#{messages[i].create_at}
                   .msg-content
                     | #{messages[i].comment}
                 - }
@@ -49,7 +49,6 @@ head
 
           // 输入框
           #message-form.input-group.input-group-lg
-            input#message-form-nickname(name='nickname', type='text', style='display:none')
             span.input-group-btn
               button#emotion-btn.btn.btn-default(type='button')
                 img(src='/img/emotion_smile.png', style='width:24px;height:24px;')

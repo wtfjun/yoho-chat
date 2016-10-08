@@ -77,7 +77,8 @@ function onClickSendMessage() {
         dataType: 'json',
         data: {
             nickname: $.cookie('chat_nickname'),
-            comment: content
+            comment: content,
+            create_at: getLocalHMS()
         },
     })
     .done(function() {

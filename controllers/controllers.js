@@ -60,10 +60,12 @@ exports.loginAction = function(req, res, next) {
 exports.leaveMessageAction = function(req, res, next) {						//add a message
 	var nickname = req.body.nickname;
 	var comment = req.body.comment;
-
+	var create_at = req.body.create_at;
+	// console.log(Date().toLocaleString());
 	var message = new Message();
 	message.nickname = nickname;
 	message.comment = comment;
+	message.create_at = create_at;
 
 	message.save(function(err) {
 		if(err) return console.error(err);
