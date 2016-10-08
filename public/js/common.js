@@ -6,5 +6,7 @@ function appendZero(obj) {
 function getLocalHMS() {
     var time = (new Date()).getTime();
     var d = new Date();
-    return (' '+d.getFullYear()+'-' + appendZero(parseInt( d.getMonth()+1 ))+'-' + appendZero(d.getDate())+' ' + appendZero(d.getHours()) + ":" + appendZero(d.getMinutes()) + ":" + appendZero(d.getSeconds())).toString();
+    var value = (' '+d.getFullYear()+'-' + appendZero(parseInt( d.getMonth()+1 ))+'-' + appendZero(d.getDate())+' ' + appendZero(d.getHours()) + ":" + appendZero(d.getMinutes()) + ":" + appendZero(d.getSeconds())).toString();
+    console.log(value);
+    return value;
 }

@@ -97,6 +97,7 @@ function onClickSendMessage() {
 
 function addMessage(_name, _time, _content) {
     var msg_list = $(".chat-body");
+    // _time = _time.slice(0,24);
     // _content = QxEmotion.Parse(_content);
     msg_list.append(
             '<div class="clearfix msg-wrap"><div class="msg-head">' +
