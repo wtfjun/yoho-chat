@@ -8,9 +8,3 @@ function getLocalHMS() {
     var d = new Date();
     return ' '+d.getFullYear()+'-' + appendZero(parseInt( d.getMonth()+1 ))+'-' + appendZero(d.getDate())+' ' + appendZero(d.getHours()) + ":" + appendZero(d.getMinutes()) + ":" + appendZero(d.getSeconds());
 }
-
-function getHMS(time) {
-    var time = time.getTime();
-    var d = time;
-    return ' '+d.getFullYear()+'-' + appendZero(parseInt( d.getMonth()+1 ))+'-' + appendZero(d.getDate())+' ' + appendZero(d.getHours()) + ":" + appendZero(d.getMinutes()) + ":" + appendZero(d.getSeconds());
-}
